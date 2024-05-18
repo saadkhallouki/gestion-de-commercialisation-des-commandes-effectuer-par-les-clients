@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Vente" Class="venteDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=Vente;Integrated Security=True" SettingsObjectName="GestionCommercial.Properties.Settings" SettingsPropertyName="VenteConnectionString2" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.article" Member="article">
+    <Type Name="article">
+      <Column Name="codeart" Type="System.String" DbType="VarChar(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="desi" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="Pu" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Qdipo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="article_detail" Member="detail" ThisKey="codeart" OtherKey="codeart" Type="detail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Client" Member="Client">
+    <Type Name="Client">
+      <Column Name="codecl" Type="System.String" DbType="VarChar(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nom" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="ville" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Association Name="Client_commande" Member="commande" ThisKey="codecl" OtherKey="codecl" Type="commande" />
+    </Type>
+  </Table>
+  <Table Name="dbo.commande" Member="commande">
+    <Type Name="commande">
+      <Column Name="NumCom" Type="System.String" DbType="VarChar(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="dateCom" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="codecl" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Association Name="commande_detail" Member="detail" ThisKey="NumCom" OtherKey="NumCom" Type="detail" />
+      <Association Name="Client_commande" Member="Client" ThisKey="codecl" OtherKey="codecl" Type="Client" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.detail" Member="detail">
+    <Type Name="detail">
+      <Column Name="NumCom" Type="System.String" DbType="VarChar(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="codeart" Type="System.String" DbType="VarChar(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Qte" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="article_detail" Member="article" ThisKey="codeart" OtherKey="codeart" Type="article" IsForeignKey="true" />
+      <Association Name="commande_detail" Member="commande" ThisKey="NumCom" OtherKey="NumCom" Type="commande" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

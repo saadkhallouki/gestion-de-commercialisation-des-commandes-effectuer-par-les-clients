@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="vente">
+  <DataContextMoniker Name="/venteDataContext" />
+  <nestedChildShapes>
+    <classShape Id="58efcd37-6073-419c-93bd-6c753183880a" absoluteBounds="3.5, 3.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/venteDataContext/article" />
+      <nestedChildShapes>
+        <elementListCompartment Id="831ad68a-c560-497e-8379-3c1ea730dcd2" absoluteBounds="3.515, 4.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b63922f0-d9b4-48b1-9939-444bcb8ed52e" absoluteBounds="0.75, 0.875, 2, 1.3862939453124998">
+      <DataClassMoniker Name="/venteDataContext/Client" />
+      <nestedChildShapes>
+        <elementListCompartment Id="77dd45b5-e428-480f-bdca-a65f029d35de" absoluteBounds="0.765, 1.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="276d5ba4-726d-4a7a-9b5e-e470a3a21ad6" absoluteBounds="3.5, 0.875, 2, 1.3862939453124998">
+      <DataClassMoniker Name="/venteDataContext/commande" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b928471d-6203-4d04-997d-5e01b5a4e97a" absoluteBounds="3.515, 1.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7a9fbb17-a4dc-402c-bc22-0486614b924d" absoluteBounds="6.25, 0.875, 2, 1.3862939453124998">
+      <DataClassMoniker Name="/venteDataContext/detail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="96a27b1c-5b43-40bb-968d-52e79eb5642b" absoluteBounds="6.265, 1.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.56814697265625); (3.5 : 1.56814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/venteDataContext/Client/Client_commande" />
+      <nodes>
+        <classShapeMoniker Id="b63922f0-d9b4-48b1-9939-444bcb8ed52e" />
+        <classShapeMoniker Id="276d5ba4-726d-4a7a-9b5e-e470a3a21ad6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 4.53929768880208); (7.25 : 4.53929768880208); (7.25 : 2.2612939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/venteDataContext/article/article_detail" />
+      <nodes>
+        <classShapeMoniker Id="58efcd37-6073-419c-93bd-6c753183880a" />
+        <classShapeMoniker Id="7a9fbb17-a4dc-402c-bc22-0486614b924d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 1.56814697265625); (6.25 : 1.56814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/venteDataContext/commande/commande_detail" />
+      <nodes>
+        <classShapeMoniker Id="276d5ba4-726d-4a7a-9b5e-e470a3a21ad6" />
+        <classShapeMoniker Id="7a9fbb17-a4dc-402c-bc22-0486614b924d" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
